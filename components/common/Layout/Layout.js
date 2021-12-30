@@ -37,7 +37,7 @@ const Header = () => {
   };
 
   const isRoot = pathname === "/";
-  const isDarkMode = resolvedTheme === "dark";
+  const isDarkMode = resolvedTheme === "light";
 
   return (
     <header
