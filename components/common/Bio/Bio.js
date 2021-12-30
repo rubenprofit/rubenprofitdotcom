@@ -21,10 +21,11 @@ export function Bio({ className }) {
       <p className="text-base leading-7">
         A blog by <b className="font-semibold">{author.name}</b>{" "}
         {author.summary}{" "}<br/>
+        Follow me on {" "}
         <a href={`https://twitter.com/${social.twitter}`}>
-          Follow me on twitter
+          twitter
         </a> {" "}
-        &#128293;
+        &#128072;
       </p>
     </div>
   );
