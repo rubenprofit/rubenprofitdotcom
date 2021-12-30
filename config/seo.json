@@ -1,16 +1,16 @@
 {
   "siteMetadata": {
-    "title": "Next.js Starter Blog",
+    "title": "My Two Cents",
     "author": {
-      "name": "Jose Felix",
-      "summary": "who works building clean user interfaces with React.",
-      "link": "https://jfelix.info"
+      "name": "Ruben Profit",
+      "summary": "who currently resides in NYC.",
+      "link": "https://twitter.com/rubenprofit"
     },
-    "description": "A blog created with Next.js and Tailwind.css",
-    "siteUrl": "https://nextjs-starter-blog-new-demo.vercel.app/",
+    "description": "A blog by Ruben Profit",
+    "siteUrl": "https://rubenprofit.com/",
     "language": "en-US",
     "social": {
-      "twitter": "Jose_R_Felix"
+      "twitter": "rubenprofit"
     }
   }
 }

@@ -1,172 +1,616 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
-        <title>Next.js Starter Blog</title>
-        <link>https://nextjs-starter-blog-new-demo.vercel.app/</link>
+        <title>My Two Cents</title>
+        <link>https://rubenprofit.com/</link>
         <description>undefined</description>
-        <lastBuildDate>Mon, 06 Dec 2021 19:32:09 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 30 Dec 2021 17:59:26 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en-US</language>
-        <copyright>Copyright © 2021 Jose Felix</copyright>
+        <copyright>Copyright © 2021 Ruben Profit</copyright>
         <item>
-            <title><![CDATA[Long Post]]></title>
-            <link>https://nextjs-starter-blog-new-demo.vercel.app/posts/long-post</link>
-            <guid>long-post</guid>
-            <pubDate>Tue, 28 Jul 2020 04:00:00 GMT</pubDate>
-            <description><![CDATA[Who doesn't like a long post showcasing the different headings?]]></description>
+            <title><![CDATA[Awaited in Typescript]]></title>
+            <link>https://rubenprofit.com/posts/awaited-type</link>
+            <guid>awaited-type</guid>
+            <pubDate>Fri, 17 Dec 2021 05:00:00 GMT</pubDate>
+            <description><![CDATA[New keyword drop!]]></description>
             <content:encoded><![CDATA[
-Far far away, behind the word mountains, far from the countries Vokalia and
-Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
-right at the coast of the Semantics, a large language ocean. A small river named
-Duden flows by their place and supplies it with the necessary regelialia.
+## Introduction
 
-## On deer horse aboard tritely yikes and much
+With the release of Typescript 4.5, a new utility type called `Awaited` was introduced. According to the documentation, this type "is meant to model operations like `await` in `async` functions, or the `.then()` method on Promise's - specifically the way that they recursively unwrap Promise's.". The goal of this article to attempt to unpack how this introduction can improve asynchronous programming.
 
-The Big Oxmox advised her not to do so, because there were thousands of bad
-Commas, wild Question Marks and devious Semikoli, but the Little Blind Text
-didn’t listen. She packed her seven versalia, put her initial into the belt and
-made herself on the way.
+**_Note: This article assumes you know the basic uses of typescript and promises in javascript._**
 
-- This however showed weasel
-- Well uncritical so misled
-  - this is very interesting
-- Goodness much until that fluid owl
+## The problem
 
-When she reached the first hills of the **Italic Mountains**, she had a last
-view back on the skyline of her hometown _Bookmarksgrove_, the headline of
-[Alphabet Village](http://google.com) and the subline of her own road, the Line
-Lane. Pityful a rhetoric question ran over her cheek, then she continued her
-way. On her way she met a copy.
+Prior to the introduction of the `Awaited` keyword if you wanted to infer the return type of a promise after it resolved, you needed to `unwrap` the promise using the `infer` keyword. Below we will take a look at how that is done.
 
-### Overlaid the jeepers uselessly much excluding
+```Typescript
+type Awaited<T> = T extends Promise<infer U> ? U : T; // custom Awaited type
 
-But nothing the copy said could convince her and so it didn’t take long until a
-few insidious Copy Writers ambushed her, made her drunk with
-[Longe and Parole](http://google.com) and dragged her into their agency, where
-they abused her for their projects again and again. And if she hasn’t been
-rewritten, then they are still using her.
+const resolveTrue = Promise.resolve(true); // promise which resolves boolean
 
-> Far far away, behind the word mountains, far from the countries Vokalia and
-> Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
-> right at the coast of the Semantics, a large language ocean.
-
-It is a paradisematic country, in which roasted parts of sentences fly into your
-mouth. Even the all-powerful Pointing has no control about the blind texts it is
-an almost unorthographic life One day however a small line of blind text by the
-name of Lorem Ipsum decided to leave for the far World of Grammar.
-
-### According a funnily until pre-set or arrogant well cheerful
-
-The Big Oxmox advised her not to do so, because there were thousands of bad
-Commas, wild Question Marks and devious Semikoli, but the Little Blind Text
-didn’t listen. She packed her seven versalia, put her initial into the belt and
-made herself on the way.
-
-1.  So baboon this
-2.  Mounted militant weasel gregariously admonishingly straightly hey
-3.  Dear foresaw hungry and much some overhung
-4.  Rash opossum less because less some amid besides yikes jeepers frenetic
-    impassive fruitlessly shut
-
-When she reached the first hills of the Italic Mountains, she had a last view
-back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet
-Village and the subline of her own road, the Line Lane. Pityful a rhetoric
-question ran over her cheek, then she continued her way. On her way she met a
-copy.
-
-> The copy warned the Little Blind Text, that where it came from it would have
-> been rewritten a thousand times and everything that was left from its origin
-> would be the word "and" and the Little Blind Text should turn around and
-> return to its own, safe country.
-
-But nothing the copy said could convince her and so it didn’t take long until a
-few insidious Copy Writers ambushed her, made her drunk with Longe and Parole
-and dragged her into their agency, where they abused her for their projects
-again and again. And if she hasn’t been rewritten, then they are still using
-her. Far far away, behind the word mountains, far from the countries Vokalia and
-Consonantia, there live the blind texts.
-
-#### Silent delightfully including because before one up barring chameleon
-
-Separated they live in Bookmarksgrove right at the coast of the Semantics, a
-large language ocean. A small river named Duden flows by their place and
-supplies it with the necessary regelialia. It is a paradisematic country, in
-which roasted parts of sentences fly into your mouth.
-
-Even the all-powerful Pointing has no control about the blind texts it is an
-almost unorthographic life One day however a small line of blind text by the
-name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox
-advised her not to do so, because there were thousands of bad Commas, wild
-Question Marks and devious Semikoli, but the Little Blind Text didn’t listen.
-
-#### Wherever far wow thus a squirrel raccoon jeez jaguar this from along
-
-She packed her seven versalia, put her initial into the belt and made herself on
-the way. When she reached the first hills of the Italic Mountains, she had a
-last view back on the skyline of her hometown Bookmarksgrove, the headline of
-Alphabet Village and the subline of her own road, the Line Lane. Pityful a
-rhetoric question ran over her cheek, then she continued her way. On her way she
-met a copy.
-
-#### Slapped cozy a that lightheartedly and far
-
-The copy warned the Little Blind Text, that where it came from it would have
-been rewritten a thousand times and everything that was left from its origin
-would be the word "and" and the Little Blind Text should turn around and return
-to its own, safe country. But nothing the copy said could convince her and so it
-didn’t take long until a few insidious Copy Writers ambushed her, made her drunk
-with Longe and Parole and dragged her into their agency, where they abused her
-for their projects again and again.]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[Coding Post]]></title>
-            <link>https://nextjs-starter-blog-new-demo.vercel.app/posts/coding-post</link>
-            <guid>coding-post</guid>
-            <pubDate>Sun, 19 Apr 2020 04:00:00 GMT</pubDate>
-            <description><![CDATA[Coding is such a blissful activity.]]></description>
-            <content:encoded><![CDATA[
-```jsx
-import React from "react";
-
-const CoolComponent = () => <div>I'm a cool component!!</div>;
-
-export default CoolComponent;
+type promiseBoolean = Awaited<typeof resolveTrue>; // promiseBoolean is boolean!
 ```
+
+As you can see in the above example, in order for us to get the `boolean` type resolved from the promise in `resolveTrue` we needed to first create an `Awaited` type which extended typescript's `Promise` type and *infer* the return type with `U` if it resolves and `T` if it doesn't resolve (ie. throws an error). Once typescript figures out the type of the promise, it will assign it to `U`. This is what typescript decribes as [inferring within conditional types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#inferring-within-conditional-types). You can see where the need to **unwrap** the type was necessary. Our boolean was **wrapped** in a Promise like so `Promise<boolean>` but we needed to unwrap it using our *custom* `Awaited` type to bubble up the `boolean` type we wanted.
+
+## The new way to do things
+
+With the introduction of the `Awaited` type, we no longer need to use the above method and create a custom type to **infer** the type of resolved promise. Typescript does all the inference for us straight out of the box!
+
+Here's an example of it in action:
+
+```Typescript
+const resolveTrue = Promise.resolve(true);
+
+type promiseBoolean = Awaited<Promise<typeof resolveTrue>>; // promiseBoolean type is boolean!
+
+const getFalse = (): promiseBoolean => {
+    return Promise.resolve(false);
+}; // TS won't throw error!
+```]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Five tensor operations]]></title>
+            <link>https://rubenprofit.com/posts/five-funcs-pytorch</link>
+            <guid>five-funcs-pytorch</guid>
+            <pubDate>Sat, 30 May 2020 04:00:00 GMT</pubDate>
+            <description><![CDATA[A short introduction to PyTorch starting with 5 tensor methods.]]></description>
+            <content:encoded><![CDATA[
+Last week I enrolled in [FreeCodeCamp's ZeroToGANs](http://zerotogans.com/) deep learning with PyTorch
+course. The motivation behind doing so was mainly because of quarantine and wanting to learn something
+new while being on lockdown.
+
+As a software engineer mainly focused on app development, who by the way, barely completed college
+level algebra and trig, I can say in total confidence that I have no clue what the hell I am getting
+myself into or even if I have the capacity to complete it.
+
+But, the cool thing about this course is that the instructors take a `code-first` rather than a
+`math-first` approach in teaching the lessons and I think this works well for me because one thing
+I can learn to userstand is code.
+
+Now whether the `code-first` approach is the right way to get introduced into the space of machine
+learning is something I won't get into and of course there are concepts that I would have to
+learn in order to contribute anywhere effectively but the way I see it is:
+
+> `I have to start somewhere right?`
+
+So with all that said, this is by no means a hardcore introduction to data science. I won't be going
+into things like **gradient descent**, **linear regression**, **neural networks** etc. because there
+are plenty of authority figures who are better equipped to do so. Instead, what you'll find below
+are **5 PyTorch methods** I found interesting that I think are a good way to get introduced to the
+space starting with code.
+
+## A little intro to PyTorch and torch.tensor
+
+[PyTorch](https://pytorch.org/) is a python library built and maintained by Facebook, full of
+programs to help facilitate building of deep learning projects.
+
+PyTorch at its core processes multi-dimensional matrix called a
+[tensor](https://pytorch.org/docs/stable/tensors.html). A tensor can contain **_integers_**,
+**_floats_** and **\*booleans**.
+
+To create a tensor in PyTorch, use the `torch.tensor` API likeso:
+
+```Python
+import torch
+
+torch.tensor([1, 2, 3, 4])
+
+# Output
+tensor([1., 2., 3., 4.])
+```
+
+In the example above I created a one dimensional tensor with integers valued 1 - 4.
+
+Outside of `torch.tensor`, the five methods I'll go over are:
+
+-   torch.arange()
+-   torch.split()
+-   torch.stack()
+-   torch.abs()
+-   torch.add()
+
+These are just methods I found that might be a good intro into PyTorch API but of course, if you want
+to learn more check out the [documentation](https://pytorch.org/docs/stable/torch.html).
+
+## Function #1 - torch.arange
+
+Returns a one dimensional tensor with values from **_start_** to **_end_** incremented by **_steps_**.
+
+```Python
+# Example 1: 1-D tensor with size of 10 with steps of 1
+torch.arange(10)
+
+# Output
+tensor([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+```
+
+Notice that the first value in our tensor starts with 0. If no **_start_** parameter is provided,
+it defaults to **0**.
+
+```Python
+# Example 2 - More parameters
+torch.arange(1., 2, .1, requires_grad = True)
+
+# Output
+tensor([1.0000, 1.1000, 1.2000, 1.3000, 1.4000, 1.5000, 1.6000, 1.7000,
+1.8000, 1.9000], requires_grad=True)
+```
+
+Notice here the start and steps parameters are **float** points. We can also provide a range of
+other parameters such as **_requires_grad_**, **_out_**, **_dtype_**, **_layout_** and **_device_**.
+
+```Python
+# Example 3 - breaking (to illustrate when it breaks)
+length = 10
+width = 5
+torch.arange(length * width, step = 1, dtype = torch.get_default_dtype())
+
+# Output
+TypeError: arange() received an invalid combination of arguments
+```
+
+Be mindeful of how you organize your parameters. Correct way to write this would be like so:
+
+```Python
+torch.arange(start = 0, end = length * width, step = 1,
+dtype = torch.get_default_dtype())
+```
+
+> torch.arange can be useful to create a one dimensional tensor of indices.
+
+## Function #2 - torch.split
+
+Splits the tensor into chunks. Each chunk is a view of the original tensor.
+
+```Python
+# Example 1 - Basic split
+input_tensor = torch.tensor([50, 80, 10, 2])
+torch.split(input_tensor, split_size_or_sections = 1)
+
+# Output
+(tensor([50]), tensor([80]), tensor([10]), tensor([2]))
+```
+
+Above we created a input tensor and used the split method to break our tensor data into equal
+chunks of size 1.
+
+```Python
+# Example 2 - Split a tensor of ones, size 10, into chunks of at most size 2
+x = torch.ones(10)
+torch.split(x, 2)
+
+# Output
+(tensor([1., 1.]),
+ tensor([1., 1.]),
+ tensor([1., 1.]),
+ tensor([1., 1.]),
+ tensor([1., 1.]))
+```
+
+In the example above, first we created a tensor of **1**'s size 10. After which we use the split
+method to split the tensor into chucks of seperate tensors with a size of atmost 2.
+
+```Python
+# Example 3 - breaking (to illustrate when it breaks)
+y = torch.zeros([3, 3])
+torch.split(y, 1, 3)
+
+# Output
+IndexError: Dimension out of range (expected to be in range of [-2, 1], but got 3)
+```
+
+We get this error **_IndexError: Dimension out of range_** when we attempt increase the dim size.
+This causes an issue with the shape. Keep in mind the dimensions along which you want to split the tensor.
+
+> torch.split is perfect when you need to split a Tensor into equal-size chunks!
+
+## Function #3 - torch.stack
+
+Concatenates sequence of tensors along a new dimension.
+
+```Python
+# Example 1 - Basic example
+a = torch.ones([3, 3])
+b = torch.zeros([3, 3])
+torch.stack([a, b])
+
+# Output
+tensor([[[1., 1., 1.],
+         [1., 1., 1.],
+         [1., 1., 1.]],
+        [[0., 0., 0.],
+         [0., 0., 0.],
+         [0., 0., 0.]]])
+```
+
+In the above example we create two seperated tensors using **_ones_** and **_zeros_**. After which
+was concatenated into one tensor using the **_stack_** method.
+
+```Python
+# Example 2 - Stack two tensor on one dimension
+c = torch.ones(5)
+d = torch.zeros(5)
+torch.stack([c, d], 1)
+
+# Output
+tensor([[1., 0.],
+        [1., 0.],
+        [1., 0.],
+        [1., 0.],
+        [1., 0.]])
+```
+
+In the above example we created another two tensors with the **_ones_** and **_zeros_** method.
+This time when we concatenated them using the **_stack_** method we added an extra parameter for
+our dimension we want to **_stack_** along.
+
+```Python
+# Example 3 - breaking (to illustrate when it breaks)
+e = torch.ones(3)
+f = torch.zeros(4)
+torch.stack([e, f])
+
+# Output
+RuntimeError: stack expects each tensor to be equal size, but got
+[3] at entry 0 and [4] at entry 1
+```
+
+We get the error above **_stack expects each tensor to be equal size_** because the shapes of
+tensor **_e_** and **_f_** are not the same.
+
+> torch.stack function is perfect when you need to concatenate two tensors of equal size.
+
+## Function #4 - torch.abs
+
+Computes the element-wise absolute value of the given input tensor.
+
+```Python
+# Example 1 - Basic example
+ex_tensor = torch.tensor([-1, -2, -3])
+torch.abs(ex_tensor)
+
+# Output
+tensor([1, 2, 3])
+```
+
+In the above example, first we created a tensor with all negative integers and passed that tensor
+through torches **\*abs** which turned every element to a positive integer.
+
+```Python
+# Example 2
+m = torch.tensor([1])
+n = torch.tensor([2])
+print('negative:', m - n)
+torch.abs(m - n)
+
+# Output
+negative: tensor([-1])
+tensor([1])
+```
+
+Similar to the first example, here we create two tensors using **_tensor_** method, after which we
+run some arithmitic on both tensors which returns a negative integer but as you can see when we
+pass that same expression to **_abs_** method it returns as positive.
+
+```Python
+# Example 3 - breaking (to illustrate when it breaks)
+o = numpy.array([1, [-2]])
+torch.abs(o)
+
+# Output
+TypeError: abs(): argument 'input' (position 1) must be Tensor, not numpy.ndarray
+```
+
+Make sure you pass a tensor as a argument to torch.abs unless it will throw the above error:
+**_abs(): argument 'input' (position 1) must be Tensor, not numpy.ndarray_**.
+
+> torch.abs is great when you want to work with all positive element in your tensor!
+
+## Function #5 - torch.add
+
+Adds the scalar other to each element of the input and returns a new resulting tensor.
+
+```Python
+# Example 1 - Basic example
+p = torch.ones(10)
+torch.add(p, 9)
+
+# Output
+tensor([10., 10., 10., 10., 10., 10., 10., 10., 10., 10.])
+```
+
+So in the above example we create a tensor of ones with size of 10 using **_ones_** method. Next we
+pass our tensor of ones to the **_add_** method with an accumulator of 9 which takes each element
+of our tensor and add 9 to it.
+
+```Python
+# Example 2
+q = torch.randn(4)
+r = torch.randn(1)
+torch.add(q, r, alpha = 10)
+
+# Output
+tensor([17.4783, 17.0044, 17.4107, 19.7463])
+```
+
+In this example we create a tensor of random floats with size of 4. Next we create a tensor of a
+random integer with size of one. Finally we add all the elements of **_q_** with **_r_** with a
+scalar multiplier of **_10_**.
+
+```Python
+# Example 3 - breaking (to illustrate when it breaks)
+s = complex(1, 1)
+t = torch.zeros(1)
+torch.add(t, s)
+
+# Output
+RuntimeError: Complex dtype not supported.
+```
+
+In the above example we create a complex number using the **_complex_** method. Then we create a
+tensor of **_0_**'s with size of one and then attempt to add the element of our tensor to our
+complex number. We get the error: **_Complex dtype not supported._** because only **_integers_** and
+**_floats_** are supported in the **_add_** method.
+
+> This function is great when you need to accumulate each element in your tensor by the same value.
+
+## And that's about it
+
+If you enjoyed this little intro I recommend checking out the rest of the documentation and also the
+course. I'll link them below.
+
+If you want to play around with the code, I've created a [Jupyter notebook](https://jovian.ml/unknouun/01-tensor-operations).
+There you can run the examples I've written above. You can also fork it and play around with the API yourself if you so please.
+
+## Reference Links
+
+-   [Official documentation for `torch.Tensor`](https://pytorch.org/docs/stable/tensors.html)
+-   [ZeroToGANs Lecture #1 PyTorch Basics - Tensors & Gradients](https://jovian.ml/aakashns/01-pytorch-basics)
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[Second post]]></title>
-            <link>https://nextjs-starter-blog-new-demo.vercel.app/posts/second-post</link>
-            <guid>second-post</guid>
-            <pubDate>Fri, 17 Apr 2020 04:00:00 GMT</pubDate>
-            <description><![CDATA[The second post is the least memorable.]]></description>
+            <title><![CDATA[Interfaces and Classes]]></title>
+            <link>https://rubenprofit.com/posts/interface-vs-class</link>
+            <guid>interface-vs-class</guid>
+            <pubDate>Thu, 21 Nov 2019 05:00:00 GMT</pubDate>
+            <description><![CDATA[Contract, no EULA.]]></description>
             <content:encoded><![CDATA[
-# h1
+So I've been interested [Typescript](https://www.typescriptlang.org/index.html) for a
+while now because I kept seeing tweets like [these](https://twitter.com/kosalanuwan/status/1166276082451902465)
+and I absolutely had to see what all the rage was about.
 
-## h2
+After trying it out I immediately saw all of the philosophical and technical benefits that it brings
+to developing javascript applications. And over the course of me playing around with the language there were a lot
+of things it brought to the javascript ecosystem that I was excited to use but for now I want to focus on just one,
+[Interfaces](https://www.typescriptlang.org/docs/handbook/interfaces.html#introduction).
 
-### h3
+More specifically, the relationship between Interfaces and Classes and how and when to use them.
 
-Normal text
+**_Note: I know Interfaces are already a thing in languages like C#, Java and other OOP languages.
+This post is focused on use cases in Typescript. If you don't care feel free to hit me up with topics
+you would like me to cover._**
+
+According to the typescript documentation, an Interface is:
+
+> A powerful way of defining contracts within your code outside your project.
+
+To put it simply a Interface descibes _what_ a piece of code _must_ do.
+
+Here's an example of a simple Interface:
+
+```Typescript
+interface BookInterface {
+    title: string;
+    author: string;
+    pages: number;
+    currentPage: number;
+}
+```
+
+Now lets break this down. First we've initiated a _BookInterface_ interface with the keyword _interface_
+and within our interface we describe properties called: _title_ and _author_ whose types must be strings;
+_pages_ and _currentPage_ whose types _must_ be numbers. This tells any piece of code we have that
+implements our Book interface that they must contain these variables and types.
+
+But not only can we describe variables in an interface, we can also describe methods. Here's an example
+extending our Book interface:
+
+```Typescript
+interface BookInterface {
+    title: string;
+    author: string;
+    pages: number;
+    currentPage: number;
+    read(pgs: number): void;
+}
+```
+
+In the above example we described a method called `read` whose type is `void` because we won't be
+returning anything. The read method will just accept a parameter called `pgs` whose type must a
+number and set the `currentPage` depending on how many pages read.
+
+Since we created a Book interface, we exposed a few custom types now we can create a class that
+follows the contract described by our interface, like so:
+
+```Typescript
+class Book implements BookInterface {
+  public title: string;
+  public author: string;
+  public pages: number;
+  public currentPage: number;
+  public constructor(
+    title: string,
+    author: string,
+    pages: number,
+    currentPage: number = 0
+  ) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.currentPage = currentPage;
+  }
+  public read(pgs: number) {
+    this.currentPage = pgs;
+  }
+}
+```
+
+Here we created a class called `Book` and by using the `implements` keyword we can have our class
+subscribe to the contract of the `BookInterface`. Inside we give it all the properties, methodds
+described in the interface and a `constructor` method to initialize an object. Now we have a class
+that has custom types that are strictly enforced by our interface. This helps us have more
+predictable and reusable code. We attached the **_public_** label to each item in order to avoid
+calling the **_super()_** method.
+
+**Note: Any class that implements an interface and does not include all of the properties will throw
+the error:** **_Class incorrectly implements interface. Property is missing in type but required
+in type._**
+
+Now if we create a new instance of our `Book` we can see that all the custom types are there and checked:
+
+```Typescript
+const favoriteBook = new Book("Old Man's War", "John Scalzi", "351")
+favoriteBook.read(10)
+console.log(favoriteBook)
+// Book { name: "Old Man's War", author: "John Scalzi", pages: 351, currentPage: 10 }
+```
+
+We can also use interfaces to create a custom type for initializing an object in our classes, like so:
+
+```Typescript
+interface BookConstructor {
+  new (title: string, author: string, pages: number, currentPage: number): BookInterface
+}
+
+interface BookInterface {
+    title: string;
+    author: string;
+    pages: number;
+    currentPage: number;
+    read(pgs: number): void;
+}
+
+class Book implements BookInterface {
+  public title: string;
+  public author: string;
+  public pages: number;
+  public currentPage: number;
+  public constructor(
+    title: string,
+    author: string,
+    pages: number,
+    currentPage: number = 0
+  ) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.currentPage = currentPage;
+  }
+  public read(pgs: number) {
+    this.currentPage = pgs;
+  }
+}
+
+const favoriteBook = new Book("Old Man's War", "John Scalzi", "351")
+favoriteBook.read(10)
+```
+
+Above, we created a new Interface because the last interface we created defined the instance methods
+and properties and can't do both. Our new interface is very similar to the last interface we created
+but also very different. After using the `interface` keyword to define a `BookConstructor` we then
+set a `new` operator property with all the same parameters and types we need to construct our Book
+class. The key here though is the `BookInterface` typing we assign the the new operator. This tells
+typescript to run a check on the `BookInterface` to ensure that we have the necessary
+parameters to create a new instance.
+
+Using interfaces are an pretty good way to make sure that your classes play by the rules you want them to.
+
+So now that we've covered the basics of how to create an interface and how they interact with classes,
+let's look at a practical application of what we went over and put it together in a react app.
+
+Lets say we wanted to create a simple web component that renders data about a book we are currently
+reading and allows us to update the current page. We can use the same **BookInterface** we created
+above and just pass it to a component like so:
+
+```Typescript
+import React, { useState } from "react";
+
+interface BookInterface {
+    title: string;
+    author: string;
+    pages: number;
+    currentPage: number;
+    read(pgs: number): void;
+}
+
+const BookComponent = (props: BookInterface) => {
+  const [value, setValue] = useState<string>('')
+
+  const handleChange = (e: object): void => {
+    e.preventDefault();
+    setValue(e.target.value);
+  }
+
+  return (
+  <div>
+    <p>{props.title}</p>
+    <p>{props.author}</p>
+    <p>{props.pages}</p>
+    <p>{props.currentPage}</p>
+    <input value={value} onChange={e => handleChange(e)} placeHolder='Current Page' />
+    <button onClick={() => props.read(value)}>Current page</button>
+  </div>
+  )
+}
+
+export default App = () => {
+  const [currentPage, setCurrentPage] = useState<number>(1)
+
+  const read = (pgs: number): void => {
+    setCurrentPage(pgs);
+  }
+
+  return (
+    <div className="App">
+      <BookComponent
+        title="Clean Code"
+        author="Ruben Profit"
+        pages={4}
+        currentPage={currentPage}
+        read={read}
+      />
+    </div>
+  );
+}
+```
+
+And Voila!!! There it is. We created fully annotated React app using Typescript's interfaces
+
+If you have any other questions or want to take a deeper dive into Typescript, I recommend checking
+out the documentation. I'll link it below. There's also a really cool playground there that you can
+checkout and test out typescript right in the browser.
+
+## Reference Links
+
+-   [Official documentation for Typescript](https://www.typescriptlang.org/docs/home.html)
 ]]></content:encoded>
         </item>
         <item>
-            <title><![CDATA[First post]]></title>
-            <link>https://nextjs-starter-blog-new-demo.vercel.app/posts/first-post</link>
-            <guid>first-post</guid>
-            <pubDate>Thu, 16 Apr 2020 04:00:00 GMT</pubDate>
-            <description><![CDATA[The first post is the most memorable one.]]></description>
+            <title><![CDATA[Hello world!]]></title>
+            <link>https://rubenprofit.com/posts/coming-soon</link>
+            <guid>coming-soon</guid>
+            <pubDate>Sun, 11 Aug 2019 04:00:00 GMT</pubDate>
+            <description><![CDATA[I'll try and write a little here and there.]]></description>
             <content:encoded><![CDATA[
-# h1
+I created this blog to write about things, in a space I have full control over.
 
-## h2
+So yeah expect more posts!
 
-### h3
-
-Normal text
-
-![Cat](cat.jpg)
+In the meantime, check out this [random wikipedia article](https://en.wikipedia.org/wiki/Special:Random).
 ]]></content:encoded>
         </item>
     </channel>

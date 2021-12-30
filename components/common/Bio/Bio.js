@@ -1,7 +1,5 @@
 import clsx from "clsx";
-
 import Image from "next/image";
-
 import { getSiteMetaData } from "@utils/helpers";
 import profilePicture from "@/content/assets/profile.png";
 
@@ -21,11 +19,12 @@ export function Bio({ className }) {
       </div>
 
       <p className="text-base leading-7">
-        Written by <b className="font-semibold">{author.name}</b>{" "}
-        {author.summary}{" "}
+        A blog by <b className="font-semibold">{author.name}</b>{" "}
+        {author.summary}{" "}<br/>
         <a href={`https://twitter.com/${social.twitter}`}>
-          Follow him on twitter
-        </a>
+          Follow me on twitter
+        </a> {" "}
+        &#128293;
       </p>
     </div>
   );

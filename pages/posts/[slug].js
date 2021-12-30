@@ -92,7 +92,6 @@ const MarkdownImage = ({ alt, src }) => {
     <Image
       alt={alt}
       src={require(`../../content/assets/${src}`)}
-      placeholder="blur"
       className="w-full"
     />
   );

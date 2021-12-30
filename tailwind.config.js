@@ -32,7 +32,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "neon-orange": "#f92300",
+        "star-command-blue": "#327AAE",
+        "jet": "#2E2F2F",
+        "rajah": "#FFA647",
       },
       fontSize: {
         "7xl": "4.5rem",
@@ -54,7 +56,7 @@ module.exports = {
               backgroundColor: theme("colors.gray.700"),
             },
             a: {
-              color: theme("colors.neon-orange"),
+              color: theme("colors.star-command-blue"),
             },
           },
         },
@@ -72,7 +74,7 @@ module.exports = {
               backgroundColor: theme("colors.gray.300"),
             },
             a: {
-              color: theme("colors.yellow.500"),
+              color: theme("colors.rajah"),
             },
             h1: {
               color: theme("colors.gray.100"),

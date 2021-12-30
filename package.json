@@ -1,10 +1,10 @@
 {
-  "name": "nextjs-blog-starter",
-  "version": "0.3.0",
-  "description": "A Next.js template for a blog website.",
+  "name": "rubenprofitdotcom",
+  "version": "1.0.0",
+  "description": "blog",
   "private": true,
   "engines": {
-    "node": "14"
+    "node": "16"
   },
   "scripts": {
     "dev": "next dev",
@@ -37,9 +37,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Jfelix61/nextjs-starter-blog.git"
+    "url": "git+https://github.com/rubenprofit/rubenprofitdotcom"
   },
-  "homepage": "https://github.com/Jfelix61/nextjs-starter-blog#readme",
+  "homepage": "https://rubenprofit.com",
   "keywords": [
     "next.js",
     "blog",

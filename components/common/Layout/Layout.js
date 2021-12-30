@@ -4,20 +4,18 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 import { useTheme } from "next-themes";
-import Image from "next/image";
 
 import RSSIcon from "@assets/svg/rss.svg";
 
 export function Layout({ children }) {
   return (
-    <div className="w-full min-h-screen dark:bg-gray-700 dark:text-white">
+    <div className="w-full min-h-screen dark:jet dark:text-white">
       <div className="max-w-screen-sm px-4 py-12 mx-auto antialiased font-body">
         <Header />
         <main>{children}</main>
         <footer className="text-lg font-light">
-          © {new Date().getFullYear()}, Built with{" "}
-          <a href="https://nextjs.org/">Next.js</a>
-          &#128293;
+          © {new Date().getFullYear()}, {" "}
+          <a href="https://github.com/rubenprofit/rubenprofitdotcom">Source</a>
         </footer>
       </div>
     </div>
@@ -75,7 +73,7 @@ const LargeTitle = () => (
           "dark:text-white"
         )}
       >
-        Next.Js Starter Blog
+        My Two Cents
       </a>
     </Link>
   </h1>
@@ -90,7 +88,7 @@ const SmallTitle = () => (
           "dark:text-white"
         )}
       >
-        Next.Js Starter Blog
+        My Two Cents
       </a>
     </Link>
   </h1>
