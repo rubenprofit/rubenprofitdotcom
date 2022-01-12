@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
-        <title>My Two Cents</title>
+        <title>rubenprofitdotcom</title>
         <link>https://rubenprofit.com/</link>
         <description>undefined</description>
-        <lastBuildDate>Thu, 30 Dec 2021 18:15:51 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 12 Jan 2022 00:25:08 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en-US</language>
-        <copyright>Copyright © 2021 Ruben Profit</copyright>
+        <copyright>Copyright © 2022 Ruben Profit</copyright>
         <item>
             <title><![CDATA[Awaited in Typescript]]></title>
             <link>https://rubenprofit.com/posts/awaited-type</link>

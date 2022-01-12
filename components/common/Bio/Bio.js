@@ -4,7 +4,7 @@ import { getSiteMetaData } from "@utils/helpers";
 import profilePicture from "@/content/assets/profile.png";
 
 export function Bio({ className }) {
-  const { author, social } = getSiteMetaData();
+  const { social } = getSiteMetaData();
 
   return (
     <div className={clsx("flex items-center space-x-3", className)}>
@@ -19,8 +19,6 @@ export function Bio({ className }) {
       </div>
 
       <p className="text-base leading-7">
-        A blog by <b className="font-semibold">{author.name}</b>{" "}
-        {author.summary}{" "}<br/>
         Follow me on {" "}
         <a href={`https://twitter.com/${social.twitter}`}>
           twitter
